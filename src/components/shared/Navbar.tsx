@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Code2, Github } from "lucide-react";
+import { Button } from "../ui/button";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -43,15 +44,18 @@ export default function Navbar() {
             ))}
             
             <div className="h-6 w-[1px] bg-slate-200" />
+            <Button className="bg-indigo-600">
+            <Link href={`/login`}>Login</Link>
+           </Button>
 
-            <Link
+            {/* <Link
               href="https://github.com"
               target="_blank"
               className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-all flex items-center gap-2"
             >
               <Github size={16} />
               GitHub
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,15 +85,18 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+           <Button className="bg-indigo-600">
+            <Link href={`/login`}>Login</Link>
+           </Button>
           
-          <Link
+          {/* <Link
             href="https://github.com"
             onClick={() => setIsOpen(false)}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-4 text-center font-bold text-white shadow-lg shadow-indigo-100"
           >
             <Github size={20} />
             Check out my GitHub
-          </Link>
+          </Link> */}
         </div>
       )}
     </nav>
