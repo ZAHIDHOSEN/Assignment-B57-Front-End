@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button"
 import { Field, FieldLabel } from "@/components/ui/field"
 import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { useRouter } from "next/navigation"
 import { Controller, useForm } from "react-hook-form"
 
 
 
 
 export default function Login() {
+  const router = useRouter()
 
   type FormValues ={
     email:string
@@ -23,8 +25,32 @@ export default function Login() {
     }
   })
 
-  const onSubmit = (data:FormValues) => {
-    console.log(data)
+  const onSubmit = async(data:FormValues) => {
+      
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(data)
+      })
+      if(res.ok){
+         router.push("/dashboard")
+      }
+
+     
+
+      const result = await res.json()
+      console.log("success",result)
+      
+    } catch (error) {
+      
+    }
+
+
+
+
     form.reset()
   }
 
