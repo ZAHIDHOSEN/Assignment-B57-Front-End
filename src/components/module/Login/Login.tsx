@@ -6,6 +6,7 @@ import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { Controller, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 
 
 
@@ -36,6 +37,7 @@ export default function Login() {
         body:JSON.stringify(data)
       })
       if(res.ok){
+        toast.success("login succefully done")
          router.push("/dashboard")
       }
 
@@ -45,7 +47,7 @@ export default function Login() {
       console.log("success",result)
       
     } catch (error) {
-      
+      console.log(error)
     }
 
 

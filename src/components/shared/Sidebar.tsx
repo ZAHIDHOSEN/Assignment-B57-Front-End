@@ -46,7 +46,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/update-blog"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-zinc-800"
         >
           <Pencil className="h-4 w-4" />
@@ -61,7 +61,7 @@ export default function Sidebar() {
           Delete Blog
         </Link>
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/create-project"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-zinc-800"
         >
           <PlusCircle className="h-4 w-4" />
@@ -69,7 +69,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/update-project"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-zinc-800"
         >
           <Pencil className="h-4 w-4" />
