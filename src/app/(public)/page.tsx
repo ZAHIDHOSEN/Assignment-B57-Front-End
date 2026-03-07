@@ -1,13 +1,17 @@
-import { Button } from "@/components/ui/button";
+import Home from "@/components/module/Home/Home";
+import About from "@/components/shared/About";
+import Contact from "@/components/shared/Contact";
 
 
 
-export default function Home() {
+
+export default function HomePage() {
   return (
     
      <div>
-      zahid
-      <Button>click</Button>
+      <Home></Home>
+      <About></About>
+      <Contact></Contact>
      </div>
 
    

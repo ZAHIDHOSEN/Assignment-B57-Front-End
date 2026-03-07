@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Code2, Github } from "lucide-react";
+import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "../ui/button";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Contact", href: "/contact" },
+   { name: "Blog", href: "/blog" },
+  { name: "Projects", href: "/projects" },
+   { name: "Contact", href: "/contact" },
+  { name: "dashboard", href: "/dashboard" },
 ];
 
 export default function Navbar() {
