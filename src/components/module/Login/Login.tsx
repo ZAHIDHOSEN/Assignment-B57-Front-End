@@ -34,8 +34,13 @@ export default function Login() {
         headers:{
           "Content-Type":"application/json",
         },
-        body:JSON.stringify(data)
+        body:JSON.stringify(data),
+         credentials: "include"
       })
+
+      const result = await res.json()
+      console.log("success",result)
+
       if(res.ok){
         toast.success("login succefully done")
          router.push("/dashboard")
@@ -43,17 +48,13 @@ export default function Login() {
 
      
 
-      const result = await res.json()
-      console.log("success",result)
+     
       
     } catch (error) {
       console.log(error)
     }
 
-
-
-
-    form.reset()
+     form.reset()
   }
 
   return (

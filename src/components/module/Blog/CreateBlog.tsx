@@ -5,10 +5,13 @@ import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Controller, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 
-interface ICreateBlog {
+
+export interface ICreateBlog {
   title: string
   slug: string
+  thumbnail: string
   content: string
   
 }
@@ -18,8 +21,21 @@ export default function CreateBlog() {
 
 
    const onSubmit = async(data:ICreateBlog)=>{
-     console.log(data)
+      const blog = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blog`,{
+        method:"POST",
+        headers:{
+          "Content-Type" :"application/json"
+        },
+        body: JSON.stringify(data),
+        credentials: "include"
+      })
+
+    const result = await blog.json()
+    form.reset()
+    toast.success("Blog created")
+    
    }
+
   return (
      
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -48,6 +64,18 @@ export default function CreateBlog() {
               <Field>
                 <FieldLabel>Slug</FieldLabel>
                 <Input {...field} placeholder="blog-slug-example" />
+              </Field>
+            )}
+          />
+          {/* image */}
+
+           <Controller
+            name="thumbnail"
+            control={form.control}
+            render={({ field }) => (
+              <Field>
+                <FieldLabel>Thumbnail</FieldLabel>
+                <Input {...field} placeholder=" thumbnail-link-example" />
               </Field>
             )}
           />

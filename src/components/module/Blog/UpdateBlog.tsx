@@ -8,8 +8,9 @@ import { Controller, useForm } from "react-hook-form"
 
 interface IUpdateBlog {
  title ?: string
-  slug ?: string
-  content ?: string
+ slug ?: string
+ thumbnail ?: string
+ content ?: string
 }
 
 
@@ -18,7 +19,7 @@ export default function UpdateBlog() {
   const form = useForm<IUpdateBlog>()
 
    const onSubmit = async(data:IUpdateBlog)=>{
-     console.log(data)
+     
    }
   return (
      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -51,6 +52,18 @@ export default function UpdateBlog() {
             )}
           />
 
+          {/* thumbnail */}
+            <Controller
+            name="thumbnail"
+            control={form.control}
+            render={({ field }) => (
+              <Field>
+                <FieldLabel>Thumbnail</FieldLabel>
+                <Input {...field} placeholder="blog-thumbnail-example" />
+              </Field>
+            )}
+          />
+
           {/* Content */}
           <Controller
             name="content"
@@ -65,7 +78,7 @@ export default function UpdateBlog() {
          
 
           <Button type="submit" className="bg-indigo-600 w-full hover:bg-indigo-700">
-            Create Blog
+            Update Blog
           </Button>
 
         </form>

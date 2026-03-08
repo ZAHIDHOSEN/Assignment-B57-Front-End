@@ -1,9 +1,10 @@
 "use client"; 
 
-import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "../ui/button";
+import { useState } from "react";
+
 
 const navLinks = [
   { name: "Home", href: "/" },
