@@ -8,7 +8,8 @@ export default function DashboardPage() {
     <div>
      <h3 className='text-3xl font-bold text-indigo-600 text-center'>Dashboard Home</h3>
 
-     <div>
+     <div className='p-4'>
+      <h2 className='font-bold text-center text-2xl my-4'>Blog</h2>
        <BlogTable></BlogTable>
      </div>
      <h2 className='text-center font-bold text-2xl my-4'>Project</h2>

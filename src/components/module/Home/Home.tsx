@@ -76,8 +76,11 @@ export default function Home() {
           {/* Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg">
-                Download Resume
+              <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg">
+               <a href="/zahid-resume.pdf" download={`resume`}>
+               Download Resume
+               </a>
+                
               </Button>
             </motion.div>
             

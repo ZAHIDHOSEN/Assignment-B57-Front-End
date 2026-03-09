@@ -11,7 +11,7 @@ export default async function BlogPage() {
     const blogs = await data.json()
    
   return (
-    <div className='grid grid-cols-4 gap-5'>
+    <div className='md:grid grid-cols-4 gap-5'>
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         blogs.map((blog:any) => <BlogCard key={blog.id} blog={blog}></BlogCard>)
