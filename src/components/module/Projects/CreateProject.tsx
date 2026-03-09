@@ -5,7 +5,9 @@ import { Field, FieldLabel } from "@/components/ui/field";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 
 interface ICreateProject {
@@ -19,11 +21,46 @@ interface ICreateProject {
 }
 
 export default function CreateProject() {
-    
     const form = useForm<ICreateProject>()
+    const [features,setFeatures] = useState<string[]>([])
+    const [featuresInput,setFeatureInput] = useState("")
+    
+
+    const addFeatured = () =>{
+      const val = featuresInput.trim()
+      if(val && !features.includes(val)){
+        setFeatures([...features,val])
+      }
+      setFeatureInput("")
+    }
+     
+
+    const removeFeature = (feature: string) => {
+    setFeatures(features.filter(f => f !== feature))
+  }
+    
+    
     
    const onSubmit = async(data:ICreateProject)=>{
-     console.log(data)
+      const payload = {...data,features}
+      console.log("payload",payload)
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data),
+      credentials:"include"
+    })
+    
+   await res.json()
+
+    if(res.ok){
+      toast.success("Project created Successfully")
+    }
+     form.reset()
+     setFeatures([])
    }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -109,10 +146,38 @@ export default function CreateProject() {
             name="features"
             control={form.control}
             render={({ field }) => (
-              <Field>
-                <FieldLabel>Features</FieldLabel>
-                <Input {...field} placeholder="Features" />
-              </Field>
+            <Field>
+            <FieldLabel>Features</FieldLabel>
+            <div className="flex gap-2 mb-2">
+              <Input
+                value={featuresInput}
+                onChange={e => setFeatureInput(e.target.value)}
+                placeholder="Add feature and press Enter"
+                onKeyDown={e => e.key === "Enter" && (e.preventDefault(), addFeatured())}
+              />
+              <Button type="button" onClick={addFeatured}>
+                Add
+              </Button>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {features.map(f => (
+                <div
+                  key={f}
+                  className="flex items-center gap-1 bg-indigo-100 text-indigo-800 rounded px-2 py-1"
+                >
+                  <span>{f}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeFeature(f)}
+                    className="font-bold"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+          </Field>
             )}
           />
 

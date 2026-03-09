@@ -1,6 +1,7 @@
 
 import BlogTable from '@/components/module/Blog/BlogTable'
-import React from 'react'
+import ProjectTable from '@/components/module/Projects/ProjectTable'
+
 
 export default function DashboardPage() {
   return (
@@ -9,6 +10,10 @@ export default function DashboardPage() {
 
      <div>
        <BlogTable></BlogTable>
+     </div>
+     <h2 className='text-center font-bold text-2xl my-4'>Project</h2>
+     <div>
+       <ProjectTable></ProjectTable>
      </div>
     </div>
   )
