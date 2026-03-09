@@ -1,7 +1,7 @@
 
 import BlogCard from '@/components/module/Blog/BlogCard'
 
-import React from 'react'
+
 
 
 export default async function BlogPage() {

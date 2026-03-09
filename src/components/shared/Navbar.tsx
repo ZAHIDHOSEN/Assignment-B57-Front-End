@@ -15,8 +15,12 @@ const navLinks = [
   { name: "dashboard", href: "/dashboard" },
 ];
 
+
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+ 
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
@@ -91,14 +95,6 @@ export default function Navbar() {
             <Link href={`/login`}>Login</Link>
            </Button>
           
-          {/* <Link
-            href="https://github.com"
-            onClick={() => setIsOpen(false)}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-4 text-center font-bold text-white shadow-lg shadow-indigo-100"
-          >
-            <Github size={20} />
-            Check out my GitHub
-          </Link> */}
         </div>
       )}
     </nav>
