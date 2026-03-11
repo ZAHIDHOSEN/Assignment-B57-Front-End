@@ -14,7 +14,7 @@ export default async function BlogPage() {
     <div className='md:grid grid-cols-4 gap-5'>
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        blogs.map((blog:any) => <BlogCard key={blog.id} blog={blog}></BlogCard>)
+        blogs?.map((blog:any) => <BlogCard key={blog.id} blog={blog}></BlogCard>)
       }
       
     </div>

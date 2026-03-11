@@ -44,6 +44,7 @@ export default function Login() {
       if(res.ok){
         toast.success("login succefully done")
          router.push("/dashboard")
+         router.refresh()
       }
 
      

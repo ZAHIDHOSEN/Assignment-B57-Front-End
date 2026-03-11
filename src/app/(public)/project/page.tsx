@@ -22,7 +22,7 @@ export default async function ProjectPage() {
     <div className='md:grid grid-cols-3 gap-5 py-20 px-4'>
 
         {
-          data.map((project:IProject) => <ProjectCard key={project.id} project ={project}></ProjectCard>)
+          data?.map((project:IProject) => <ProjectCard key={project.id} project ={project}></ProjectCard>)
         }
       
     </div>
