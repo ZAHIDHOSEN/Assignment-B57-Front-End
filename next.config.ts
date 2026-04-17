@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
-      
+        hostname: 'i.postimg.cc',
+        pathname: '/**',
       },
     ],
   },

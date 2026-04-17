@@ -18,10 +18,13 @@ interface ProjectCardProps {
   };
 }
 
+
+
     
 
 
 export default function ProjectCard({project}:ProjectCardProps) {
+  console.log(project.thumbnail)
   return (
   <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -37,6 +40,9 @@ export default function ProjectCard({project}:ProjectCardProps) {
             src={project.thumbnail}
             alt={project.title}
             fill
+            unoptimized
+            priority={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
