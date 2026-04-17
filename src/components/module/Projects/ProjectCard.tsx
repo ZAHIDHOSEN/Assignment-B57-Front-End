@@ -9,6 +9,7 @@ import Link from "next/link";
 
 interface ProjectCardProps {
   project: {
+    id:string
     title: string;
     slug: string;
     description: string;
@@ -24,7 +25,7 @@ interface ProjectCardProps {
 
 
 export default function ProjectCard({project}:ProjectCardProps) {
-  console.log(project.thumbnail)
+  // console.log(project)
   return (
   <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -72,7 +73,7 @@ export default function ProjectCard({project}:ProjectCardProps) {
         <CardFooter className="p-5 pt-4 grid grid-cols-2 gap-3 border-t border-slate-100 dark:border-slate-800">
           {/* Details Link */}
           <Button asChild variant="outline" size="sm" className="w-full">
-            <Link href={`/projects/${project.slug}`}>
+            <Link href={`/projects/${project.id}`}>
               <Info size={16} className="mr-2" /> Details
             </Link>
           </Button>
