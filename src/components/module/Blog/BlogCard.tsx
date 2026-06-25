@@ -60,7 +60,7 @@ export default function BlogCard({blog}:any) {
             variant="ghost" 
             className="p-0 hover:bg-transparent text-indigo-600 dark:text-indigo-400 group"
           >
-            <Link href={`/blogs/${blog.slug}`} className="flex items-center gap-2 font-bold">
+            <Link href={`/blog/${blog.id}`} className="flex items-center gap-2 font-bold">
               Read More 
               <motion.span
                 animate={{ x: [0, 4, 0] }}

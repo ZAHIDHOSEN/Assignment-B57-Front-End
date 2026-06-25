@@ -73,7 +73,7 @@ export default function ProjectCard({project}:ProjectCardProps) {
         <CardFooter className="p-5 pt-4 grid grid-cols-2 gap-3 border-t border-slate-100 dark:border-slate-800">
           {/* Details Link */}
           <Button asChild variant="outline" size="sm" className="w-full">
-            <Link href={`/projects/${project.id}`}>
+            <Link href={`/project/${project.id}`}>
               <Info size={16} className="mr-2" /> Details
             </Link>
           </Button>
